@@ -1,0 +1,80 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!-- index.html -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蘑菇快跑！</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <h1>蘑菇快跑！</h1>
+        
+        <div id="history-display">
+            <span id="best-mileage-display">最佳里程: 0m</span>
+            <span>|</span>
+            <span id="best-score-display">最佳分数: 0</span>
+        </div>
+
+        <p>按 [空格] 或 [↑] 跳跃 · 按 [↓] 滑铲</p>
+        <canvas id="gameCanvas"></canvas>
+        
+        <!-- 游戏UI元素 -->
+        <div id="ui-container">
+            <div id="status-bar">
+                <div id="mileage-display">里程: 0m</div>
+                <div id="score-display">分数: 0</div>
+            </div>
+
+            <div id="controls-bar">
+                <button id="pause-toggle-button">暂停</button>
+                <button id="guide-toggle-button">图鉴</button>
+            </div>
+
+            <div id="discovery-notification" class="hidden">
+                <!-- JS会填充内容 -->
+            </div>
+
+            <div id="game-over-display" class="hidden">
+                <h2>游戏结束</h2>
+                <p>点击或按任意键重新开始</p>
+            </div>
+        </div>
+
+        <!-- 图鉴面板 -->
+        <div id="guide-container" class="hidden">
+            <!-- 图鉴网格视图 -->
+            <div id="guide-content">
+                <div class="guide-header">
+                    <h2>蘑菇图鉴</h2>
+                    <button id="guide-close-button" class="guide-close-btn">×</button>
+                </div>
+                <div id="guide-grid">
+                    <!-- JS 会在这里动态生成20个蘑菇槽位 -->
+                </div>
+                <p class="guide-tip">（点击已发现的蘑菇查看详情）</p>
+            </div>
+            <!-- 图鉴详情视图 -->
+            <div id="guide-detail-view" class="hidden">
+                 <div class="guide-header">
+                    <h2 id="detail-mushroom-name">蘑菇名称</h2>
+                    <button id="detail-back-button" class="guide-close-btn">← 返回</button>
+                </div>
+                <div class="detail-content-wrapper">
+                    <img id="detail-mushroom-image" src="" alt="蘑菇大图">
+                    <p id="detail-mushroom-desc">这里是蘑菇的详细介绍...</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
